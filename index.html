@@ -127,6 +127,31 @@
       overflow: hidden;
     }
 
+    .hero-graphic {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-graphic-fill-tool {
+      width: clamp(60px, 7.2vw, 104px);
+      top: clamp(32px, 7vw, 100px);
+      left: clamp(16px, 10vw, 144px);
+    }
+
+    .hero-graphic-pen {
+      width: clamp(70px, 10vw, 147px);
+      top: clamp(80px, 14vw, 200px);
+      right: clamp(16px, 8vw, 115px);
+    }
+
+    .hero-graphic-ruler {
+      width: clamp(80px, 9.8vw, 141px);
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: clamp(32px, 5vw, 60px);
+    }
+
     .hero .eyebrow { margin-bottom: 16px; }
 
     .hero .display {
@@ -679,6 +704,9 @@
 
   <!-- ─── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
+    <img src="assets/graphic-fill-tool.png" alt="" aria-hidden="true" class="hero-graphic hero-graphic-fill-tool" />
+    <img src="assets/graphic-pen.png"       alt="" aria-hidden="true" class="hero-graphic hero-graphic-pen" />
+    <img src="assets/graphic-ruler.png"     alt="" aria-hidden="true" class="hero-graphic hero-graphic-ruler" />
     <div class="container">
       <span class="eyebrow">Open Studio · 5-Day Intensive</span>
       <h1 class="display">Five days building real capability</h1>
