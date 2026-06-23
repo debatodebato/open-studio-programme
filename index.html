@@ -192,24 +192,24 @@
       justify-content: center;
       gap: 0;
       margin-top: 48px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      width: 100%;
     }
 
     .day-strip-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
-      padding: 0 clamp(12px, 2.5vw, 40px);
-      flex-shrink: 0;
+      gap: clamp(4px, 0.8vw, 10px);
+      padding: 0 clamp(6px, 1.5vw, 32px);
+      flex: 1 1 0;
+      min-width: 0;
     }
 
     .day-strip-sep {
       font-family: var(--font-label);
-      font-size: 18px;
+      font-size: clamp(10px, 1.2vw, 18px);
       color: rgba(42, 81, 188, 0.53);
-      letter-spacing: 4px;
+      letter-spacing: clamp(2px, 0.4vw, 5px);
       writing-mode: vertical-rl;
       flex-shrink: 0;
       user-select: none;
@@ -217,7 +217,7 @@
 
     .day-num {
       font-family: var(--font-label);
-      font-size: clamp(14px, 1.8vw, 25px);
+      font-size: clamp(10px, 1.4vw, 25px);
       color: rgba(42, 81, 188, 0.53);
       text-transform: uppercase;
       line-height: 0.84;
@@ -225,9 +225,10 @@
 
     .day-label {
       font-family: var(--font-body);
-      font-size: clamp(12px, 1.8vw, 25px);
+      font-size: clamp(10px, 1.4vw, 22px);
       color: rgba(42, 81, 188, 0.53);
       text-align: center;
+      line-height: 1.2;
     }
 
     /* ─── What You Get ────────────────────────────────────────── */
