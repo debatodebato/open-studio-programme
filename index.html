@@ -335,12 +335,12 @@
 
     .cards-track {
       display: flex;
-      gap: clamp(16px, 3vw, 60px);
+      gap: clamp(16px, 3vw, 40px);
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scroll-padding-left: clamp(24px, 6.9vw, 100px);
+      scroll-padding-left: max(24px, calc((100vw - 670px) / 2));
       -webkit-overflow-scrolling: touch;
-      padding: 0 clamp(24px, 6.9vw, 100px) 16px;
+      padding: 0 max(24px, calc((100vw - 670px) / 2)) 16px;
       cursor: grab;
     }
 
@@ -363,7 +363,7 @@
     }
 
     .day-card {
-      flex: 0 0 calc(100vw - clamp(72px, 14vw, 220px));
+      flex: 0 0 min(630px, calc(100vw - 48px));
       height: clamp(280px, 30vw, 408px);
       scroll-snap-align: start;
       background: var(--day-blue);
@@ -639,7 +639,7 @@
     /* ─── Responsive ──────────────────────────────────────────── */
     @media (max-width: 767px) {
       .form-row { grid-template-columns: 1fr; }
-      .day-card { flex: 0 0 calc(100vw - 72px); height: auto; min-height: 300px; }
+      .day-card { flex: 0 0 min(630px, calc(100vw - 48px)); height: auto; min-height: 300px; }
 
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .sticky-bar-text span { display: none; }
