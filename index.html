@@ -341,22 +341,11 @@
       margin-bottom: clamp(40px, 5vw, 80px);
     }
 
-    .cards-track {
-      display: flex;
-      gap: clamp(16px, 3vw, 40px);
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-padding-left: max(24px, calc((100vw - 670px) / 2));
-      -webkit-overflow-scrolling: touch;
-      padding: 0 max(24px, calc((100vw - 670px) / 2)) 16px;
-      cursor: grab;
-    }
-
-    .cards-track:active { cursor: grabbing; }
-    .cards-track::-webkit-scrollbar { height: 0; }
-
     .cards-wrap {
       position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
     }
 
     .cards-wrap::after {
@@ -364,11 +353,26 @@
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 16px; /* matches track padding-bottom */
-      width: clamp(60px, 12vw, 160px);
+      bottom: 16px;
+      width: 80px;
       background: linear-gradient(to right, transparent, var(--seasalt));
       pointer-events: none;
+      z-index: 1;
     }
+
+    .cards-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 24px;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 24px 16px;
+      cursor: grab;
+    }
+
+    .cards-track:active { cursor: grabbing; }
+    .cards-track::-webkit-scrollbar { height: 0; }
 
     .day-card {
       flex: 0 0 min(630px, calc(100vw - 48px));
