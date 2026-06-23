@@ -131,25 +131,40 @@
       position: absolute;
       pointer-events: none;
       user-select: none;
+      z-index: 0;
     }
 
+    /* Keep text above graphics */
+    .hero .container { position: relative; z-index: 1; }
+
+    /* Fill tool — upper left corner, clear of the text column */
     .hero-graphic-fill-tool {
-      width: clamp(60px, 7.2vw, 104px);
-      top: clamp(32px, 7vw, 100px);
-      left: clamp(16px, 10vw, 144px);
+      width: clamp(48px, 5.5vw, 104px);
+      top: clamp(16px, 4vw, 56px);
+      left: clamp(8px, 2vw, 40px);
     }
 
+    /* Pen — upper right corner, clear of the text column */
     .hero-graphic-pen {
-      width: clamp(70px, 10vw, 147px);
-      top: clamp(80px, 14vw, 200px);
-      right: clamp(16px, 8vw, 115px);
+      width: clamp(56px, 6.5vw, 120px);
+      top: clamp(40px, 6vw, 100px);
+      right: clamp(8px, 2vw, 40px);
     }
 
+    /* Ruler — centred, tucked between hook text and day strip */
     .hero-graphic-ruler {
       width: clamp(80px, 9.8vw, 141px);
       left: 50%;
       transform: translateX(-50%);
-      bottom: clamp(32px, 5vw, 60px);
+      /* sits in the gap between hook paragraph and day strip */
+      bottom: calc(clamp(80px, 14vw, 160px) + 16px);
+    }
+
+    @media (max-width: 600px) {
+      /* Too narrow to use corner gutters — hide to avoid clutter */
+      .hero-graphic-fill-tool,
+      .hero-graphic-pen { display: none; }
+      .hero-graphic-ruler { bottom: clamp(60px, 10vw, 100px); }
     }
 
     .hero .eyebrow { margin-bottom: 16px; }
