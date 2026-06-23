@@ -127,7 +127,8 @@
       overflow: hidden;
     }
 
-    .hero-graphic {
+    /* Corner graphics — absolutely positioned, always visible, scale with vw */
+    .hero-graphic-corner {
       position: absolute;
       pointer-events: none;
       user-select: none;
@@ -137,34 +138,23 @@
     /* Keep text above graphics */
     .hero .container { position: relative; z-index: 1; }
 
-    /* Fill tool — upper left corner, clear of the text column */
     .hero-graphic-fill-tool {
-      width: clamp(48px, 5.5vw, 104px);
-      top: clamp(16px, 4vw, 56px);
-      left: clamp(8px, 2vw, 40px);
+      width: clamp(36px, 5.5vw, 104px);
+      top: clamp(12px, 3vw, 56px);
+      left: clamp(6px, 1.5vw, 40px);
     }
 
-    /* Pen — upper right corner, clear of the text column */
     .hero-graphic-pen {
-      width: clamp(56px, 6.5vw, 120px);
-      top: clamp(40px, 6vw, 100px);
-      right: clamp(8px, 2vw, 40px);
+      width: clamp(44px, 6.5vw, 120px);
+      top: clamp(28px, 5vw, 100px);
+      right: clamp(6px, 1.5vw, 40px);
     }
 
-    /* Ruler — centred, tucked between hook text and day strip */
+    /* Ruler — inline in the flow so it never overlaps the day strip */
     .hero-graphic-ruler {
+      display: block;
       width: clamp(80px, 9.8vw, 141px);
-      left: 50%;
-      transform: translateX(-50%);
-      /* sits in the gap between hook paragraph and day strip */
-      bottom: calc(clamp(80px, 14vw, 160px) + 16px);
-    }
-
-    @media (max-width: 600px) {
-      /* Too narrow to use corner gutters — hide to avoid clutter */
-      .hero-graphic-fill-tool,
-      .hero-graphic-pen { display: none; }
-      .hero-graphic-ruler { bottom: clamp(60px, 10vw, 100px); }
+      margin: clamp(16px, 3vw, 32px) auto clamp(24px, 4vw, 40px);
     }
 
     .hero .eyebrow { margin-bottom: 16px; }
@@ -719,14 +709,14 @@
 
   <!-- ─── Hero ────────────────────────────────────────────────── -->
   <section class="hero">
-    <img src="assets/graphic-fill-tool.png" alt="" aria-hidden="true" class="hero-graphic hero-graphic-fill-tool" />
-    <img src="assets/graphic-pen.png"       alt="" aria-hidden="true" class="hero-graphic hero-graphic-pen" />
-    <img src="assets/graphic-ruler.png"     alt="" aria-hidden="true" class="hero-graphic hero-graphic-ruler" />
+    <img src="assets/graphic-fill-tool.png" alt="" aria-hidden="true" class="hero-graphic-corner hero-graphic-fill-tool" />
+    <img src="assets/graphic-pen.png"       alt="" aria-hidden="true" class="hero-graphic-corner hero-graphic-pen" />
     <div class="container">
       <span class="eyebrow">Open Studio · 5-Day Intensive</span>
       <h1 class="display">Five days building real capability</h1>
       <p class="hero-sub"><em>A working studio week that builds your portfolio.</em></p>
       <p class="hero-body">Learn from practitioners doing this work right now. Use the tools professionals use. Build something you can actually be proud of.</p>
+      <img src="assets/graphic-ruler.png" alt="" aria-hidden="true" class="hero-graphic-ruler" />
 
       <div class="day-strip" aria-label="Programme overview">
         <div class="day-strip-item">
