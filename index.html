@@ -299,13 +299,10 @@
       gap: clamp(16px, 3vw, 60px);
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      scroll-padding-left: clamp(24px, 6.9vw, 100px);
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 16px;
+      padding: 0 clamp(24px, 6.9vw, 100px) 16px;
       cursor: grab;
-      padding-left: clamp(24px, 6.9vw, 100px);
-      padding-right: clamp(24px, 6.9vw, 100px);
-      margin-left: calc(-1 * clamp(24px, 6.9vw, 100px));
-      margin-right: calc(-1 * clamp(24px, 6.9vw, 100px));
     }
 
     .cards-track:active { cursor: grabbing; }
