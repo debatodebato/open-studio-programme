@@ -472,179 +472,44 @@
       line-height: 1;
     }
 
-    /* ─── Form ────────────────────────────────────────────────── */
-    #register { scroll-margin-top: 32px; }
+    /* ─── Register CTA ───────────────────────────────────────── */
+    .register-cta { scroll-margin-top: 32px; text-align: center; }
 
-    .form-header {
+    .register-cta-inner {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-bottom: clamp(48px, 6vw, 100px);
-    }
-
-    form { display: flex; flex-direction: column; gap: clamp(40px, 5vw, 72px); }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 4vw, 72px);
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(24px, 5vw, 72px);
-    }
-
-    .form-field label {
-      font-family: var(--font-mono);
-      font-size: clamp(13px, 1.4vw, 20px);
-      font-weight: 400;
-      text-transform: uppercase;
-      color: var(--muted);
-      line-height: 0.84;
-      display: block;
-    }
-
-    .form-field label .opt {
-      color: rgba(0,0,0,0.3);
-      text-transform: lowercase;
-      font-style: normal;
-    }
-
-    .form-field input,
-    .form-field textarea {
-      font-family: var(--font-body);
-      font-size: clamp(16px, 2vw, 28px);
-      color: var(--ebony);
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--ebony);
-      border-radius: 0;
-      padding: 0 0 8px;
-      outline: none;
-      width: 100%;
-      -webkit-appearance: none;
-    }
-
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: rgba(0,0,0,0.2);
-    }
-
-    .form-field textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    /* Background toggle */
-    .bg-toggle {
-      display: flex;
-      gap: clamp(16px, 5vw, 72px);
-      margin-top: clamp(16px, 2vw, 24px);
-    }
-
-    .bg-option {
-      display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px clamp(24px, 9vw, 131px);
-      font-family: var(--font-mono);
-      font-size: clamp(13px, 1.4vw, 20px);
-      text-transform: uppercase;
-      cursor: pointer;
-      border: 1px solid rgba(0,0,0,0.6);
-      color: var(--muted);
-      transition: background 0.15s, color 0.15s;
-      user-select: none;
-      white-space: nowrap;
+      gap: clamp(24px, 3vw, 40px);
     }
 
-    .bg-option.selected {
-      background: var(--ebony);
-      color: white;
-      border-color: white;
+    .register-cta-heading {
+      position: relative;
+      display: inline-block;
     }
 
-    /* Consent */
-    .consent {
-      display: flex;
-      gap: 29px;
-      align-items: flex-start;
+    .register-cursor {
+      width: clamp(28px, 3.5vw, 52px);
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+      position: relative;
+      top: -0.05em;
     }
 
-    .consent-check {
-      width: 22px;
-      height: 22px;
-      min-width: 22px;
-      border: 1px solid rgba(0,0,0,0.6);
-      border-radius: 3px;
-      background: white;
-      cursor: pointer;
-      margin-top: 2px;
-      appearance: none;
-      -webkit-appearance: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s;
+    .register-cta-btn {
+      margin-top: clamp(8px, 1.5vw, 16px);
     }
 
-    .consent-check:checked {
-      background: var(--ebony);
-    }
-
-    .consent-check:checked::after {
-      content: '';
-      display: block;
-      width: 12px;
-      height: 8px;
-      border-left: 2px solid white;
-      border-bottom: 2px solid white;
-      transform: rotate(-45deg) translate(1px, -1px);
-    }
-
-    .consent-text {
-      font-family: var(--font-mono);
-      font-size: clamp(12px, 1.2vw, 16px);
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .consent-text a {
-      color: var(--ebony);
-      text-decoration: underline;
-    }
-
-    /* Form success */
-    .form-success {
-      display: none;
-      padding: 3rem 2rem;
-      background: var(--cool-mint);
-      border: var(--border-card);
-      box-shadow: var(--shadow-card);
-    }
-
-    .form-success h3 {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .form-success p {
-      font-family: var(--font-body);
-      font-size: 1.1rem;
-      color: var(--charcoal);
-    }
-
-    /* Contact */
-    .contact-line {
+    .register-contact {
       font-family: var(--font-body);
       font-size: clamp(14px, 1.4vw, 18px);
       color: var(--muted);
-      margin-top: clamp(16px, 2vw, 24px);
+    }
+
+    .register-contact a {
+      color: var(--ebony);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .contact-line a {
@@ -718,8 +583,7 @@
     @media (max-width: 767px) {
       .form-row { grid-template-columns: 1fr; }
       .day-card { flex: 0 0 85vw; height: auto; min-height: 300px; }
-      .bg-toggle { flex-direction: column; gap: 12px; }
-      .bg-option { padding: 16px 24px; }
+
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .sticky-bar-text span { display: none; }
     }
@@ -953,58 +817,17 @@
   </section>
 
   <!-- ─── Form ─────────────────────────────────────────────────────── -->
-  <section id="register">
-    <div class="container">
-      <div class="form-header">
-        <span class="eyebrow">Register your interest</span>
-        <h2 class="display">Ready to start building?</h2>
-      </div>
-
-      <div class="form-success" id="formSuccess" role="alert">
-        <h3>You're registered.</h3>
-        <p>Thanks for registering. We'll be in touch soon with everything you need to know.</p>
-      </div>
-
-      <form id="registerForm" novalidate aria-label="Registration form">
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="" required autocomplete="given-name" />
-          </div>
-          <div class="form-field">
-            <label for="lastName">Last name</label>
-            <input type="text" id="lastName" name="lastName" placeholder="" required autocomplete="family-name" />
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" placeholder="" required autocomplete="email" />
-        </div>
-
-        <div class="form-field">
-          <label for="phone">Phone <span class="opt">(optional)</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="+971 50 000 0000" autocomplete="tel" />
-        </div>
-
-
-        <div class="consent">
-          <input type="checkbox" id="consent" name="consent" class="consent-check" required />
-          <label for="consent" class="consent-text">
-            I consent to point a. collecting, storing, and processing my personal data for application and enrolment purposes. I agree to receive communications about future events, scholarships, and programmes.<br><br>
-            <a href="https://www.pointacademy.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
-          </label>
-        </div>
-
-        <div>
-          <button type="submit" class="btn btn-mint" aria-label="Register your interest">
-            Register your interest
-            <span class="btn-arrow" aria-hidden="true">→</span>
-          </button>
-        </div>
-
-      </form>
+  <section id="register" class="register-cta">
+    <div class="container register-cta-inner">
+      <span class="eyebrow">Build real skills</span>
+      <h2 class="display register-cta-heading">
+        Ready to start building?<img src="assets/graphic-cursor.png" alt="" aria-hidden="true" class="register-cursor" />
+      </h2>
+      <a href="mailto:hi@pointacademy.com" class="btn btn-mint register-cta-btn" aria-label="Register your interest">
+        Register your interest
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="register-contact">Questions? Reach us at <a href="mailto:hi@pointacademy.com">hi@pointacademy.com</a></p>
     </div>
   </section>
 
@@ -1066,72 +889,13 @@
       track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.5;
     });
 
-    // ── Background toggle ────────────────────────────────────────────
-    document.querySelectorAll('.bg-option').forEach(opt => {
-      function select() {
-        document.querySelectorAll('.bg-option').forEach(o => {
-          o.classList.remove('selected');
-          o.setAttribute('aria-pressed', 'false');
-        });
-        opt.classList.add('selected');
-        opt.setAttribute('aria-pressed', 'true');
-        document.getElementById('background').value = opt.dataset.value;
-      }
-      opt.addEventListener('click', select);
-      opt.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); } });
-    });
-
-    // ── Sticky bar hides when form is visible ─────────────────────────
+    // ── Sticky bar hides when CTA section is visible ──────────────────
     const stickyBar   = document.getElementById('stickyBar');
-    const formSection = document.getElementById('register');
+    const ctaSection  = document.getElementById('register');
     const observer = new IntersectionObserver(entries => {
       stickyBar.classList.toggle('hidden', entries[0].isIntersecting);
     }, { threshold: 0.2 });
-    observer.observe(formSection);
-
-    // ── Form submission ───────────────────────────────────────────────
-    const form    = document.getElementById('registerForm');
-    const success = document.getElementById('formSuccess');
-
-    // Replace with your Google Apps Script Web App URL
-    const SHEET_URL = 'YOUR_GOOGLE_SCRIPT_URL';
-
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const btn = form.querySelector('[type="submit"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = 'Sending… <span class="btn-arrow">→</span>';
-      btn.disabled = true;
-
-      const data = {
-        firstName: form.firstName.value.trim(),
-        lastName:  form.lastName.value.trim(),
-        email:     form.email.value.trim(),
-        phone:     form.phone.value.trim(),
-        background: document.getElementById('background').value,
-        school:    form.school.value.trim(),
-        timestamp: new Date().toISOString(),
-      };
-
-      if (!data.firstName || !data.email) {
-        btn.innerHTML = originalText;
-        btn.disabled = false;
-        return;
-      }
-
-      try {
-        if (SHEET_URL !== 'YOUR_GOOGLE_SCRIPT_URL') {
-          await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-        }
-        form.style.display    = 'none';
-        success.style.display = 'block';
-        stickyBar.classList.add('hidden');
-      } catch {
-        btn.innerHTML = originalText;
-        btn.disabled  = false;
-        alert('Something went wrong. Please email hi@pointacademy.com');
-      }
-    });
+    observer.observe(ctaSection);
   </script>
 </body>
 </html>
