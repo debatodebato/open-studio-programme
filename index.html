@@ -335,6 +335,50 @@
     /* ─── Five-Day Journey ────────────────────────────────────── */
     .journey { padding-top: 100px; }
 
+    .swipe-hint {
+      text-align: center;
+      font-family: var(--font-label);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 12px 0 0;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+    .swipe-hint.hidden { opacity: 0; }
+
+    /* ─── Hero scroll indicator ───────────────────────────────── */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: clamp(40px, 6vw, 80px);
+      color: var(--muted);
+      animation: bounce 1.8s ease-in-out infinite;
+      cursor: default;
+      user-select: none;
+    }
+
+    .scroll-indicator span {
+      font-family: var(--font-label);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .scroll-indicator svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.5;
+    }
+
     .journey-header {
       display: flex;
       flex-direction: column;
@@ -617,7 +661,7 @@
       color: var(--ebony);
     }
 
-    .sticky-bar-text span { color: var(--muted); }
+    .sticky-bar-text span { color: var(--ebony); font-weight: 700; }
 
     /* ─── Footer ──────────────────────────────────────────────── */
     footer {
@@ -703,6 +747,12 @@
           <span class="day-label">Capstone<br>Brief</span>
         </div>
       </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>scroll</span>
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 4v12M5 11l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
   </section>
 
@@ -828,6 +878,7 @@
 
     </div>
     </div><!-- /cards-wrap -->
+    <p class="swipe-hint" aria-hidden="true">swipe →</p>
 
     <div class="container">
       <div class="scroll-dots" role="tablist" aria-label="Card navigation">
@@ -913,8 +964,7 @@
   <!-- ─── Sticky CTA Bar ───────────────────────────────────────────── -->
   <div class="sticky-bar" id="stickyBar" role="complementary" aria-label="Registration call to action">
     <span class="sticky-bar-text">
-      Open Studio · 5-Day Intensive
-      <span> · AED 1,499</span>
+      <span>AED 1,499</span> · 5-Day Intensive
     </span>
     <a href="#register" class="btn btn-mint">
       Register your interest
@@ -982,6 +1032,22 @@
       card.style.transitionDelay = (i * 0.12) + 's';
       cardObserver.observe(card);
     });
+
+    // ── Hide swipe hint after first card scroll ───────────────────────
+    const swipeHint = document.querySelector('.swipe-hint');
+    if (swipeHint) {
+      track.addEventListener('scroll', () => {
+        if (track.scrollLeft > 20) swipeHint.classList.add('hidden');
+      }, { passive: true, once: true });
+    }
+
+    // ── Hide scroll indicator after scrolling past hero ───────────────
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      window.addEventListener('scroll', () => {
+        scrollIndicator.style.opacity = window.scrollY > 80 ? '0' : '1';
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>
