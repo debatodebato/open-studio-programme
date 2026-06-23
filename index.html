@@ -128,11 +128,40 @@
     }
 
     /* Corner graphics — absolutely positioned, always visible, scale with vw */
+    @keyframes wiggle {
+      0%   { transform: rotate(0deg) translateY(0px); }
+      20%  { transform: rotate(2deg) translateY(-3px); }
+      40%  { transform: rotate(-2deg) translateY(2px); }
+      60%  { transform: rotate(1.5deg) translateY(-2px); }
+      80%  { transform: rotate(-1deg) translateY(1px); }
+      100% { transform: rotate(0deg) translateY(0px); }
+    }
+
+    @keyframes wiggle-ruler {
+      0%   { transform: rotate(0deg) translateX(0px); }
+      20%  { transform: rotate(1.5deg) translateX(-3px); }
+      40%  { transform: rotate(-1.5deg) translateX(2px); }
+      60%  { transform: rotate(1deg) translateX(-2px); }
+      80%  { transform: rotate(-0.8deg) translateX(1px); }
+      100% { transform: rotate(0deg) translateX(0px); }
+    }
+
     .hero-graphic-corner {
       position: absolute;
-      pointer-events: none;
+      pointer-events: auto;
       user-select: none;
       z-index: 0;
+      animation: wiggle 4s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-graphic-pen {
+      animation-delay: 1.2s;
+    }
+
+    .hero-graphic-corner:hover {
+      animation: none;
+      transform: rotate(3deg) scale(1.05);
     }
 
     /* Keep text above graphics */
@@ -155,6 +184,15 @@
       display: block;
       width: clamp(80px, 9.8vw, 141px);
       margin: clamp(16px, 3vw, 32px) auto clamp(24px, 4vw, 40px);
+      animation: wiggle-ruler 5s ease-in-out infinite;
+      animation-delay: 0.6s;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .hero-graphic-ruler:hover {
+      animation: none;
+      transform: rotate(3deg) scale(1.05);
     }
 
     .hero .eyebrow { margin-bottom: 16px; }
