@@ -325,7 +325,7 @@
     }
 
     .day-card {
-      flex: 0 0 clamp(280px, 82vw, 740px);
+      flex: 0 0 calc(100vw - clamp(72px, 14vw, 220px));
       height: clamp(280px, 30vw, 408px);
       scroll-snap-align: start;
       background: var(--day-blue);
@@ -601,7 +601,7 @@
     /* ─── Responsive ──────────────────────────────────────────── */
     @media (max-width: 767px) {
       .form-row { grid-template-columns: 1fr; }
-      .day-card { flex: 0 0 82vw; height: auto; min-height: 300px; }
+      .day-card { flex: 0 0 calc(100vw - 72px); height: auto; min-height: 300px; }
 
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .sticky-bar-text span { display: none; }
