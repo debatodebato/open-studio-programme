@@ -296,6 +296,9 @@
       padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 32px);
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
       gap: 20px;
     }
 
@@ -305,6 +308,11 @@
       flex-shrink: 0;
     }
 
+
+    .wyg-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .wyg-card-body { display: flex; flex-direction: column; gap: 11px; }
 
@@ -953,6 +961,21 @@
       stickyBar.classList.toggle('hidden', entries[0].isIntersecting);
     }, { threshold: 0.2 });
     observer.observe(ctaSection);
+
+    // ── WYG cards fade in one by one on scroll ────────────────────────
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.wyg-card').forEach((card, i) => {
+      card.style.transitionDelay = (i * 0.12) + 's';
+      cardObserver.observe(card);
+    });
   </script>
 </body>
 </html>
