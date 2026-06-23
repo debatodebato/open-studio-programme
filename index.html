@@ -424,27 +424,28 @@
 
     .pricing-airplane {
       position: absolute;
-      width: clamp(48px, 8vw, 120px);
-      top: 50%;
-      transform: translateY(-65%) rotate(-12deg);
-      left: clamp(240px, 30%, 400px);
+      width: clamp(56px, 9vw, 128px);
+      top: clamp(-8px, -2%, 0px);
+      left: clamp(200px, 22%, 380px);
       pointer-events: none;
       user-select: none;
     }
 
     .pricing-path {
       position: absolute;
+      left: clamp(240px, 28%, 420px);
       right: 0;
       top: 0;
-      height: 100%;
-      width: 55%;
+      bottom: 0;
       pointer-events: none;
+      overflow: visible;
     }
 
     .pricing-path svg {
       width: 100%;
       height: 100%;
       display: block;
+      overflow: visible;
     }
 
     .pricing-inner { display: flex; flex-direction: column; gap: 6px; }
@@ -806,7 +807,7 @@
         <p class="pricing-detail">for 5 days · all materials included</p>
         <img class="pricing-airplane" src="assets/graphic-paper-airplane.png" alt="" aria-hidden="true" />
         <div class="pricing-path" aria-hidden="true">
-          <svg viewBox="0 0 767 135" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 767 135" preserveAspectRatio="xMinYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 14.7C57.3 8.6 120.6-7.9 177.1 7.2C250.8 26.8 250.8 78 301 109.9C420.8 186.2 630 58.4 729.1 30.1C738.1 27.7 760.4 25.1 765.6 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-dasharray="10 15"/>
           </svg>
         </div>
