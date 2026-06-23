@@ -244,8 +244,9 @@
     }
 
     .wyg-cards {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
       gap: clamp(24px, 4vw, 61px);
     }
 
