@@ -424,17 +424,18 @@
 
     .pricing-airplane {
       position: absolute;
-      width: clamp(56px, 9vw, 128px);
-      top: clamp(-8px, -2%, 0px);
-      left: clamp(200px, 22%, 380px);
+      width: clamp(56px, 9vw, 120px);
+      top: 50%;
+      transform: translateY(-50%);
+      left: max(60%, 280px);
       pointer-events: none;
       user-select: none;
     }
 
     .pricing-path {
       position: absolute;
-      left: clamp(240px, 28%, 420px);
       right: 0;
+      left: max(64%, 320px);
       top: 0;
       bottom: 0;
       pointer-events: none;
